@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813092754) do
+ActiveRecord::Schema.define(version: 20140813111823) do
+
+  create_table "quizzes", force: true do |t|
+    t.string   "quiz_name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"

@@ -1,4 +1,6 @@
 Webapp::Application.routes.draw do
+  resources :quizzes
+
   resources :users
 
   root to: 'users#index'
