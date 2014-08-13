@@ -1,9 +1,11 @@
 Webapp::Application.routes.draw do
+  resources :questions
+
   resources :quizzes
 
   resources :users
 
-  root to: 'users#index'
+  root to: 'quizzes#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

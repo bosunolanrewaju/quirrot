@@ -5,10 +5,27 @@
   <%= @quiz.title %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @quiz.user["username"] %>
-</p>
+<% @q = Question.where(quiz_id: @quiz.id) %>
+<% count = 0 %>
+<table class="table">
+		<% @q.each do |row| %>
+		<th>
+			<p>
+			  <strong>Question <%= count += 1 %>:</strong>
+			  <%= row.entry %>
+			</p>
+
+			<% answers = [row.option1, row.option2, row.option3, row.answer] %>
+			<% answers.shuffle.each do |answer| %>
+				<td>
+					<input type="radio" name="<%= row.id %>" value="<%= answer %>">
+				  	<%= answer %>
+				</td> 
+			<% end %>
+		</th>
+		<% end %>
+</table>	
+
 
 <%= link_to 'Edit', edit_quiz_path(@quiz) %> |
 <%= link_to 'Back', quizzes_path %>
