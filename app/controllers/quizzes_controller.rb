@@ -28,7 +28,7 @@ class QuizzesController < ApplicationController
 
     respond_to do |format|
       if @quiz.save
-        format.html { redirect_to new_question_path, notice: 'Quiz was successfully created. Proceed with adding Questions for your Quiz' }
+        format.html { redirect_to new_question_path(:qid => @quiz.id), notice: 'Quiz was successfully created. Proceed with adding Questions for your Quiz'}
         format.json { render action: 'show', status: :created, location: @quiz }
       else
         format.html { render action: 'new' }

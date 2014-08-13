@@ -17,7 +17,7 @@
 
 			<% answers = [row.option1, row.option2, row.option3, row.answer] %>
 			<% answers.shuffle.each do |answer| %>
-				<td>
+				<td style="vertical-align: middle">
 					<input type="radio" name="<%= row.id %>" value="<%= answer %>">
 				  	<%= answer %>
 				</td> 
