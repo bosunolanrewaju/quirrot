@@ -1,3 +1,5 @@
+<% qui = Quiz.find(params[:qid].to_i) %>
+<h3>Quiz: <%=qui.title %></h3>
 <%= form_for(@question) do |f| %>
   <% if @question.errors.any? %>
     <div id="error_explanation">

@@ -1,0 +1,25 @@
+<%= form_for(@user, :url=>signin_path, :html=>{:class => "form-horizontal col-sm-3 float-middle"}) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :username, class: "control-label col-sm-3" %><br>
+    <%= f.text_field :username, class: "form-control col-sm-5" %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :password, class: "control-label col-sm-3" %><br>
+    <%= f.password_field :password, class: "form-control col-sm-5" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

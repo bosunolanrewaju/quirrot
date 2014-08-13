@@ -61,6 +61,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def login
+      @user = User.where(username: params[:username])
+      if @user.authenticate(params[:password])
+        session[:user_id] = @user.id
+        flash[:notice] = 'Login successful. Welcome'
+      else
+        flash.now[:error] = 'Unknown user. Please check your username and password.'
+        render :action => "new"
+      end
+
+  end
+
+  def signin
+    @user = User.new
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -72,3 +88,4 @@ class UsersController < ApplicationController
       params.require(:user).permit(:username, :password, :password_confirmation)
     end
 end
+
