@@ -16,3 +16,12 @@ body{
 a.btn{
 	color: white !important; 
 }
+
+a {
+	color: #039 !important;
+}
+
+a:hover{
+	background-color: none !important;
+	text-decoration: underline;
+}
