@@ -1,6 +1,6 @@
-<div><% notice %></div>
-<h1 style="text-align: center">Quizzes for Today</h1>
-
+<% if current_user %>
+<%  @quizzes = Quiz.where(user_id: session[:current_user_id]) %>
+<h2 style="text-align: center">Your Quiz List</h2>
 <table class="table">
   <thead>
     <tr>
@@ -28,3 +28,6 @@
 <br>
 
 <div style="text-align: center"><%= link_to 'Create Your Own Quiz', new_quiz_path, class: "btn btn-primary btn-lg" %></div>
+<% else %>
+<meta http-equiv="refresh" content="0;URL='/signin.html'" />
+<% end %>

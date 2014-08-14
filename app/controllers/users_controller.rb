@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
+    sign_in @user
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -62,15 +62,21 @@ class UsersController < ApplicationController
   end
 
   def login
-      @user = User.where(username: params[:username])
-      if @user.authenticate(params[:password])
-        session[:user_id] = @user.id
+      @user = User.where(username: "bosn").first
+      @user = @user.authenticate("larryex45")
+      if @user
+        session[:id] = 6
         flash[:notice] = 'Login successful. Welcome'
+      #  redirect_to :action => "dashboard"
+      redirect_to :root
       else
         flash.now[:error] = 'Unknown user. Please check your username and password.'
         render :action => "new"
       end
 
+  end
+
+  def dashboard
   end
 
   def signin

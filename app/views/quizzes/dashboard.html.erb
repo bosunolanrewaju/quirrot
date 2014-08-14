@@ -1,5 +1,6 @@
+<% @quizzes = Quiz.where(user_id: quiz.user[:id])%>
 <h1 style="text-align: center">Quizzes for Today</h1>
-
+<%= debug @current_user %>
 <table class="table">
   <thead>
     <tr>

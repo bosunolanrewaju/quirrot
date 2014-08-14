@@ -5,11 +5,16 @@ Webapp::Application.routes.draw do
 
   resources :users
 
+  resources :sessions
+
   root to: 'quizzes#index'
 
   post "signin" => "users#login"
 
-  get "signin"  => "users#signin"
+  get "signin"  => "sessions#signin"
+  get "dashboard" => "users#dashboard"
+  get "signup" => "users#new"
+  match "/signout" => "sessions#destroy", via: :delete
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

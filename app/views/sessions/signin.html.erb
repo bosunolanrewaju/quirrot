@@ -1,0 +1,18 @@
+<% if !current_user %>
+  <%= form_for(:session, :url => sessions_path, :html => {:class => "form-horizontal col-sm-3 float-middle"}) do |f| %>
+
+    <div class="field form-group">
+      <%= f.label :username, class: "control-label col-sm-3" %><br>
+      <%= f.text_field :username, class: "form-control col-sm-5" %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :password, class: "control-label col-sm-3" %><br>
+      <%= f.password_field :password, class: "form-control col-sm-5" %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+<% else %>
+ <meta http-equiv="refresh" content="0;URL='/dashboard'" />
+<% end %>
