@@ -7,13 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="cols-sm-8">
-<ul>
+<%= link_to "Home", :root, class: "btn btn-sm btn-primary", style: "float: left" %>
 <% if current_user %>
             <%= link_to "Sign out", signout_path, method: "delete", class: "btn btn-sm btn-danger", style: "float: right" %>
  <% else %>
             <%= link_to "Sign in", signin_path, class: "btn btn-sm btn-primary", style: "float: right" %>
 <% end %>
-</ul>
 <div class="header">
 	<%= image_tag("quirrot_logo.jpg") %>
 

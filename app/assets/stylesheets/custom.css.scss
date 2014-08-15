@@ -8,6 +8,7 @@
 }
 
 body{
+	margin-top: 10px;
 	width: 900px;
 	margin-left: auto;
 	margin-right: auto;
@@ -21,8 +22,8 @@ a {
 	color: #039 !important;
 }
 
-a:hover{
-	background-color: transparent !important;
+a:hover.link{
+	background-color: transparent!important;
 	text-decoration: underline;
 }
 
