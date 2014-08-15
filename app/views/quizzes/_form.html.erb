@@ -1,4 +1,4 @@
-<%= form_for(@quiz) do |f| %>
+<%= form_for(@quiz, :html => {:class => "form-horizontal col-sm-3 float-middle"}) do |f| %>
   <% if @quiz.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
@@ -11,13 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :quiz_title %><br>
-    <%= f.text_field :title %>
-
+  <div class="field form-group">
+    <%= f.text_field :title , class: "form-control col-sm-5", placeholder: "Quiz Title"  %>
   </div>
     <%= f.hidden_field :user_id, :value => session[:current_user_id] %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Add Quiz", class: "btn btn-primary btn-default" %>
   </div>
 <% end %>

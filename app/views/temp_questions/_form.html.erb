@@ -1,0 +1,41 @@
+<% qui = Quiz.find(params[:qid].to_i) if params[:qid].to_i != 0 %>
+<h3>Quiz: <%=qui.title if qui %></h3>
+<%= form_for(@temp_question, :html => {:class => "form-horizontal col-sm-3 float-middle"}) do |f| %>
+  <% if @temp_question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@temp_question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @temp_question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form=group">
+    <%= f.text_field :question, class: "form-control col-sm-5" , placeholder: "Your Question"  %>
+  </div>
+  <div class="field form-group">
+    <%= f.text_field :option1, class: "form-control col-sm-5" , placeholder: "Option 1"  %>
+  </div>
+  <div class="field form-group">
+    <%= f.text_field :option2, class: "form-control col-sm-5" , placeholder: "Option 2"  %>
+  </div>
+  <div class="field form-group">
+    <%= f.text_field :option3, class: "form-control col-sm-5" , placeholder: "Option 3"  %>
+  </div>
+  <div class="field form-group">
+    <%= f.text_field :answer, class: "form-control col-sm-5" , placeholder: "Correct Answer"  %>
+  </div>
+  <div class="field form-group">
+    <%= f.hidden_field :quiz_id, :value => params[:qid].to_i %>
+    <%= f.hidden_field :user_id, :value => session[:current_user_id] %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Add More Question", class: "btn btn-primary btn-default"   %>
+  </div>
+  <div>
+    <%= f.submit "Submit Quiz", class: "btn btn-primary btn-default"   %>
+  </div>
+<% end %>

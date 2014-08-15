@@ -12,18 +12,15 @@
   <% end %>
 
   <div class="field form-group">
-    <%= f.label :username, class: "control-label col-sm-3" %><br>
-    <%= f.text_field :username, class: "form-control col-sm-5" %>
+    <%= f.text_field :username, class: "form-control col-sm-5", placeholder: "Username" %>
   </div>
   <div class="field form-group">
-    <%= f.label :password, class: "control-label col-sm-3" %><br>
-    <%= f.password_field :password, class: "form-control col-sm-5" %>
+    <%= f.password_field :password, class: "form-control col-sm-5", placeholder: "Password" %>
   </div>
   <div class="field form-group">
-    <%= f.label :password_confirmation, class: "control-label col-sm-3" %><br>
-    <%= f.password_field :password_confirmation, class: "form-control col-sm-5" %>
+    <%= f.password_field :password_confirmation, class: "form-control col-sm-5", placeholder: "Password Confirmation" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Register", class: "btn btn-primary btn-default"  %>
   </div>
 <% end %>

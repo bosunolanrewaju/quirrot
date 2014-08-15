@@ -28,7 +28,7 @@ class QuizzesController < ApplicationController
 
     respond_to do |format|
       if @quiz.save
-        format.html { redirect_to new_question_path(:qid => @quiz.id), notice: 'Quiz was successfully created. Proceed with adding Questions for your Quiz'}
+        format.html { redirect_to new_temp_question_path(:qid => @quiz.id), notice: 'Quiz was successfully created. Proceed with adding Questions for your Quiz'}
         format.json { render action: 'show', status: :created, location: @quiz }
       else
         format.html { render action: 'new' }
@@ -60,6 +60,24 @@ class QuizzesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def mark
+    @count = 0
+    @q_count = 0
+    set_quiz
+    questions = Question.where(quiz_id: params["quiz_id"])
+    questions.each do |question|
+      correct_answer = question.answer
+      user_answer = params[question.id.to_s]
+      if correct_answer == user_answer
+        @count += 1
+      end
+      @q_count += 1
+    end
+    flash[:notice] = "Your score is #{@count}/#{@q_count}"
+    return render "show"
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

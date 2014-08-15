@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814130919) do
+ActiveRecord::Schema.define(version: 20140814163133) do
 
   create_table "questions", force: true do |t|
     t.string   "entry"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20140814130919) do
     t.string  "option3"
     t.string  "answer"
     t.integer "quiz_id"
-    t.integer "user_id"
   end
 
   create_table "users", force: true do |t|

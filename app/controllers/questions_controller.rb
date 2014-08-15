@@ -37,6 +37,20 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def temp
+    @temp_question = Temp_Question.new(temp_question_params)
+
+    respond_to do |format|
+      if @temp_question.save
+        format.html { redirect_to new_question_path(:qid => temp_question_params["quiz_id"]), notice: 'Question was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @question }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @question.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
@@ -70,5 +84,10 @@ class QuestionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
       params.require(:question).permit(:entry, :option1, :option2, :option3, :answer, :quiz_id)
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def temp_question_params
+      params.require(:temp_question).permit(:entry, :option1, :option2, :option3, :answer, :quiz_id)
     end
 end

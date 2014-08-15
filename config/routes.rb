@@ -7,9 +7,12 @@ Webapp::Application.routes.draw do
 
   resources :sessions
 
+  resources :temp_questions
+
   root to: 'quizzes#index'
 
   post "signin" => "users#login"
+  post "quizzes/:id" => "quizzes#mark"
 
   get "signin"  => "sessions#signin"
   get "dashboard" => "users#dashboard"
