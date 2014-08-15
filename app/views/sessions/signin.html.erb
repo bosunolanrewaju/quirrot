@@ -1,6 +1,6 @@
 <% if !current_user %>
   <%= form_for(:session, :url => sessions_path, :html => {:class => "form-horizontal col-sm-3 float-middle"}) do |f| %>
-
+    <h1 style="padding-top: 0px; text-align: center">Sign in</h1>
     <div class="field form-group">
       <%= f.text_field :username, class: "form-control col-sm-5", placeholder: "Username" %>
     </div>
@@ -11,7 +11,7 @@
       <%= f.submit :Login, class: "btn btn-primary btn-default" %>
     </div>
   <% end %>
-  <div style="text-align: center">No account yet? <%= link_to "Register", new_user_path %></div>
+  <div style="text-align: center">No account yet? <%= link_to "Register", new_user_path, class: "link" %></div>
 <% else %>
  <meta http-equiv="refresh" content="0;URL='/dashboard'" />
 <% end %>

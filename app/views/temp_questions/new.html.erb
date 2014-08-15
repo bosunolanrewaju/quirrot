@@ -21,7 +21,6 @@
 <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "flash #{key} alert-success alert", style: "font-size:20px" %>
 <% end %>
-<p id="notice"><%= notice %></p>
 <h1>New question</h1>
 
 <%= render 'form' %>

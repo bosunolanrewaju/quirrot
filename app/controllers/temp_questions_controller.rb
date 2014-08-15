@@ -44,17 +44,15 @@ class TempQuestionsController < ApplicationController
             quiz_id: temp_question_params["quiz_id"]
             )
       if @temp_question.save && @question.save
-        redirect_to new_temp_question_path(:qid => temp_question_params["quiz_id"]), notice: 'Question was successfully added.'
-      else
-
-      end
-
-      if params[:commit] == "Submit Quiz"
-        redirect_to dashboard_path
-        Temp_Question.where(quiz_id: temp_question_params["quiz_id"]).destroy_all
+        if params[:commit] == "Submit Quiz"
+          flash[:notice] = "Quiz successfully added"
+          redirect_to dashboard_path
+          Temp_Question.where(quiz_id: temp_question_params["quiz_id"]).destroy_all
+        else
+          redirect_to new_temp_question_path(:qid => temp_question_params["quiz_id"]), notice: 'Question was successfully added.'
+        end
       end
     end
-      
   end
 
   # PATCH/PUT /questions/1

@@ -6,8 +6,8 @@
     <tr>
       <th>Quiz name</th>
       <th>Created by </th>
-     <!-- <th></th>
-       <th></th>
+      <th>Questions to take</th>
+      <!-- <th></th>
      <th></th> -->
     </tr>
   </thead>
@@ -17,8 +17,8 @@
       <tr>
         <td><h3><%= link_to quiz.title, quiz, class: "link" %></h3></td>
         <td><span style="padding: 40px 0px; display: block;"><%= quiz.user["username"] %></span></td>
-       <!-- <td><%= link_to 'Show', quiz %></td>
-         <td><%= link_to 'Edit', edit_quiz_path(quiz) %></td>
+        <td><span style="padding: 40px 0px; display: block;"><%= quiz.questions.count %></span></td>
+         <!--<td><%= link_to 'Edit', edit_quiz_path(quiz) %></td>
        <td><%= link_to 'Destroy', quiz, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
