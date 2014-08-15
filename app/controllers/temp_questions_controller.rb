@@ -50,6 +50,7 @@ class TempQuestionsController < ApplicationController
       end
 
       if params[:commit] == "Submit Quiz"
+        redirect_to dashboard_path
         Temp_Question.where(quiz_id: temp_question_params["quiz_id"]).destroy_all
       end
     end

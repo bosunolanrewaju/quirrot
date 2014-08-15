@@ -1,14 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<h3>
   <strong>Username:</strong>
   <%= @user.username %>
-</p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @user.password_digest %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+</h3>
+<div style="text-align: center"><%= link_to 'Create Your Own Quiz', new_quiz_path, class: "btn btn-primary btn-lg" %></div>

@@ -10,7 +10,7 @@
 <%= link_to "Home", :root, class: "btn btn-sm btn-primary", style: "float: left" %>
 <% if current_user %>
             <%= link_to "Sign out", signout_path, method: "delete", class: "btn btn-sm btn-danger", style: "float: right" %>
-            <span style="display: block; float:right;padding: 6px 20px;">User: <%= current_user.username %></span>
+            <span style="display: block; float:right;padding: 6px 20px;">User: <%= link_to current_user.username, dashboard_path, class: "link" %></span>
  <% else %>
             <%= link_to "Sign in", signin_path, class: "btn btn-sm btn-primary", style: "float: right" %>
 <% end %>
@@ -25,4 +25,4 @@
 
 </body>
 </html>
-<% flash[:notice] = nil %>
+<% flash.discard %>
