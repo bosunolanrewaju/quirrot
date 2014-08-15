@@ -19,6 +19,7 @@ class QuizzesController < ApplicationController
 
   # GET /quizzes/1/edit
   def edit
+    flash[:notice] = "Sorry, created quizzes cannot be edited"
   end
 
   # POST /quizzes
@@ -82,7 +83,7 @@ class QuizzesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_quiz
-      @quiz = Quiz.find(params[:id])
+      @quiz = Quiz.find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -16,7 +16,10 @@ Webapp::Application.routes.draw do
 
   get "signin"  => "sessions#signin"
   get "dashboard" => "users#dashboard"
-  get "signup" => "users#new"
+  get "users" => "users#dashboard"
+  get "users/:id" => "users#dashboard"
+  
+
   match "/signout" => "sessions#destroy", via: :delete
 
   # The priority is based upon order of creation: first created -> highest priority.
