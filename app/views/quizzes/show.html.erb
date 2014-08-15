@@ -5,6 +5,7 @@
 
 <% @q = Question.where(quiz_id: @quiz.id) %>
 <% count = 0 %>
+<%= form_tag(@quiz) do |f| %>
 <table class="table " >
 <thead>
 <tr>
@@ -15,7 +16,6 @@
 	<th>Option 4</th>
 </tr>			
 </thead>
-<%= form_tag(@quiz) do |f| %>
 <tbody>
 	<% @q.each do |row| %>
 		<tr>
